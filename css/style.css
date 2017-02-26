@@ -126,6 +126,10 @@ button {
   margin: auto;
 }
 
+.album-art {
+	width: 100%;
+}
+
 .album-title {
   display: block;
   font-size: 1.1em;

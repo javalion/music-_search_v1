@@ -17,7 +17,15 @@ var handleSearch = function(evt) {
 };
 
 var successfulSearchHandler = function(results) {
-	console.log(results);
+    var $html = "";
+	if (results.albums.items.length > 0) {
+	$(results.albums.items).each(function (idx, album){
+		$html += '<li><div class="album-wrap"><img class="album-art" src="' + album.images[0].url + '"></div><span class="album-title">' + album.name + '</span><span class="album-artist">' + album.artists[0].name + '</span></li>';
+	}); } else {
+		$html = '<li class="no-albums"><i class="material-icons icon-help">help_outline</i>No albums found that match: ' + $('#search').val() + '</li>';
+	}
+	
+	$('#albums').html($html);
 };
 
 initialize();
